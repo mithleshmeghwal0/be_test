@@ -8,6 +8,13 @@ Run Test
 - `docker build -t test_image -f DockerfileTest .`
 - `docker run --rm --name testapp test_image`
 
+Postman Collection
+- `https://documenter.getpostman.com/view/18502288/2s9XxsUwBW``
+- JWT token for requests . it should be placed inside `Authorization` Header
+  Authorization: Bearer <token>
+- Token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJEYXRhIjoiN2Q0MTI2MjgtMGJmYi00NTdjLWFiYjgtMTFmZjQ5MGZlMDM0IiwiaXNzIjoidGVzdCIsInN1YiI6InNvbWVib2R5IiwiZXhwIjoxNjkzMTAyNTA5LCJuYmYiOjE2OTA1MTA1MTYsImlhdCI6MTY5MDUxMDUxNiwianRpIjoiZDk0ZDYxNDAtMzc0My00MmJmLThkODQtMGQ0ZDcwNTQ0OTVlIn0.pd4Z1S8wsQQCDf2b-uIgLw3azb4thY0RCH7-FCdzp_U 
+
+
 Run Service
 - `docker-compose up --build`
 
