@@ -8,7 +8,7 @@ Run Test
 - `docker-compose -f docker-compose.test.yml up --build`
 
 Run Service
-- `docker-compose -f docker-compose.test.yml up --build`
+- `docker-compose -f docker-compose.yml up --build`
 
 Run load test
 -  `chmod +x load.sh;./load.sh`
