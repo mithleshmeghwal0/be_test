@@ -5,4 +5,4 @@ COPY . /go/src/app/
 
 WORKDIR /go/src/app
 
-CMD ["go", "test", "./internal/userservice/v1"]
+CMD ["go", "test", "-v","./internal/userservice/v1", "./internal/sql"]

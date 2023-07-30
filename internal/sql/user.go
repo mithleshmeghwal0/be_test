@@ -12,11 +12,6 @@ import (
 	"github.com/google/uuid"
 )
 
-type resultChan struct {
-	result interface{}
-	err    error
-}
-
 func (p *Persist) CreateUser(ctx context.Context, resource *models.User) (*models.User, error) {
 	genRes, err := p.sql.CreateResource(ctx, resource)
 	if err != nil {

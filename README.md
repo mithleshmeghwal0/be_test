@@ -5,8 +5,13 @@ Pre-Requisites
 - ab -> apache benchmark
 
 Run Test
-- `docker build -t test_image -f DockerfileTest .`
-- `docker run --rm --name testapp test_image`
+- `docker-compose -f docker-compose.test.yml up --build`
+
+Run Service
+- `docker-compose -f docker-compose.test.yml up --build`
+
+Run load test
+-  `chmod +x load.sh;./load.sh`
 
 Postman Collection
 - `https://documenter.getpostman.com/view/18502288/2s9XxsUwBW``
@@ -15,11 +20,7 @@ Postman Collection
 - Token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJEYXRhIjoiN2Q0MTI2MjgtMGJmYi00NTdjLWFiYjgtMTFmZjQ5MGZlMDM0IiwiaXNzIjoidGVzdCIsInN1YiI6InNvbWVib2R5IiwiZXhwIjoxNjkzMTAyNTA5LCJuYmYiOjE2OTA1MTA1MTYsImlhdCI6MTY5MDUxMDUxNiwianRpIjoiZDk0ZDYxNDAtMzc0My00MmJmLThkODQtMGQ0ZDcwNTQ0OTVlIn0.pd4Z1S8wsQQCDf2b-uIgLw3azb4thY0RCH7-FCdzp_U 
 
 
-Run Service
-- `docker-compose up --build`
 
-Run load test
--  chmod +x load.sh;./load.sh
 
 Structure of repo
 - So i am choosing golang as programming language and postgres as database, there are many patterns to structure repo

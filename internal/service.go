@@ -52,6 +52,10 @@ func New(ctx context.Context, opts Options, log *logrus.Entry) (*Service, error)
 		return nil, fmt.Errorf("bootDB(): %v", err)
 	}
 
+	if err = persist.Migrate(); err != nil {
+		return nil, fmt.Errorf("persist.Migrate(): %v", err)
+	}
+
 	jwt := jwt.New(jwt.Options{
 		SignKey: opts.JWTSignKey,
 	})

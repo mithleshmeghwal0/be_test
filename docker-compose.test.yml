@@ -1,0 +1,19 @@
+services:
+  postgresTestDb:
+    image: postgres:14.8-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=test_db
+      - POSTGRES_CREATE_DB=true
+
+  testapp:
+    image: testapp
+    build: 
+      context: .
+      dockerfile: Dockerfile.test
+    environment:
+      - TESTDB_URL=postgres://postgres:postgres@postgresTestDb:5432/test_db?sslmode=disable 
+    depends_on:
+      - postgresTestDb

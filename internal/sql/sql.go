@@ -20,21 +20,26 @@ type Persist struct {
 
 func New(log *logrus.Entry, db *pg.DB) (*Persist, error) {
 	persistsql := persistsql.New(db)
-	oldV, newV, err := persistsql.Migrate(embedMigrations)
-	if err != nil {
-		log.WithError(err).Error("persistsql.Migrate(()")
-		return nil, fmt.Errorf("persist.Migrate(): %v", err)
-	}
-
-	if oldV == newV {
-		log.WithField("version", oldV).Debug("database up to date")
-	} else {
-		log.WithField("old_version", oldV).WithField("new_version", newV).Debugf("migrated version %d -> %d\n", oldV, newV)
-	}
 
 	return &Persist{
 		db:  db,
 		sql: persistsql,
 		log: log,
 	}, nil
+}
+
+func (p *Persist) Migrate() error {
+	oldV, newV, err := p.sql.Migrate(embedMigrations)
+	if err != nil {
+		p.log.WithError(err).Error("persistsql.Migrate(()")
+		return fmt.Errorf("persist.Migrate(): %v", err)
+	}
+
+	if oldV == newV {
+		p.log.WithField("version", oldV).Debug("database up to date")
+	} else {
+		p.log.WithField("old_version", oldV).WithField("new_version", newV).Debugf("migrated version %d -> %d\n", oldV, newV)
+	}
+
+	return nil
 }
