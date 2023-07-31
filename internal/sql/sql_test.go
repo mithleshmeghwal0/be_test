@@ -416,7 +416,7 @@ func TestPersist_ListUser(t *testing.T) {
 		{
 			name: "filter list users",
 			args: args{
-				filter: "nameLIKEa",
+				filter: `nameLIKE"a"`,
 			},
 			want: []*models.User{
 				{
@@ -433,7 +433,7 @@ func TestPersist_ListUser(t *testing.T) {
 		{
 			name: "filtered list users empty",
 			args: args{
-				filter: "nameLIKEb",
+				filter: `nameLIKE"b"`,
 			},
 			want: []*models.User{},
 		},

@@ -165,7 +165,7 @@ func (p *PersistSQL) ListResources(ctx context.Context, resource interface{}, fi
 	return count, nil
 }
 
-var filterRegx = regexp.MustCompile("^(.*)(=|!=|LIKE)(.*)$")
+var filterRegx = regexp.MustCompile(`^(.*)(=|!=|LIKE)"(.*)"$`)
 
 type Filter struct {
 	Field    string
