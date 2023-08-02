@@ -34,6 +34,9 @@ Structure of repo
   `pkg` -> it holds all external package that we need for this project, such as sql, logger, jwt, environment.
 
 Trade-offs
+- Create api can be a bit better , by adding requestId paramter in create, and we can keep a mechanism which can check , if this requestId is used before, ultimately, discarding duplicate requests.
+- Filter is list api could be better.
+- PUT api forces us to update the whole request, PATCH should also be allowed.
 - If i had more time and had to build this service for production, 
   
   *First i will also build a `history service` which will store history of change to user record.
